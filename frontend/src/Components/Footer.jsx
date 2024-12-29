@@ -10,13 +10,13 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Social Icons - First Row */}
           <div className="flex items-center space-x-6">
-            <a href="#" className="text-white hover:text-gray-400 transition-colors duration-300">
+            <a href="https://github.com/maryammehboob786" className="text-white hover:text-gray-400 transition-colors duration-300">
               <Github size={24} />
             </a>
             <a href="https://www.linkedin.com/in/maryammehboobalam/" className="text-white hover:text-gray-400 transition-colors duration-300">
               <Linkedin size={24} />
             </a>
-            <a href="#" className="text-white hover:text-gray-400 transition-colors duration-300">
+            <a href="maryam56mehboob@gmail.com" className="text-white hover:text-gray-400 transition-colors duration-300">
               <Mail size={24} />
             </a>
           </div>

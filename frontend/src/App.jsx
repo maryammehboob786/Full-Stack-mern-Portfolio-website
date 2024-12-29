@@ -6,7 +6,10 @@ import TestimonialSection from './Components/Testimonial/TestimonialSection';
 import Footer from './Components/Footer/';
 import TeckStack from './Components/AnimatedTechStack/'
 import SpeakerIntroSection from './Components/WhoisMaryam/SpeakerIntroSection'
-import CustomCursor from "./Components/CustomCursor"; // Path to your component
+import CustomCursor from "./Components/CustomCursor";
+import Appointment from "./Components/AppointmentBooking/AppointmentForm";
+import Services from "./Components/Services/Services";
+ // Path to your component
 
 const App = () => {
   return (
@@ -18,11 +21,11 @@ const App = () => {
       {/* Hero Section */}
       <Hero />
       <TeckStack/>
+      <Services/>
       <SpeakerIntroSection/>
+      <Appointment/>
       
 
-      {/* About Section */}
-      <About />
 
       {/* Testimonials */}
       <TestimonialSection />

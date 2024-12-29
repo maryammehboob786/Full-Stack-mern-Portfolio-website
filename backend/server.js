@@ -2,7 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const Testimonial = require('./models/Testimonials'); // Import the model
+const Testimonial = require('./models/Testimonials'); // Import the testimonial model
+const Appointment = require('./models/Appointment'); // Import the appointment model
 
 // Import routes for testimonials
 const testimonialsRoutes = require('./routes/testimonials');
@@ -29,19 +30,30 @@ mongoose
 // Use testimonials routes
 app.use('/api/testimonials', testimonialsRoutes);
 
-// Create a route for adding a sample testimonial
-app.get('/create', async (req, res) => {
+// Create an appointment route
+app.post('/api/appointments', async (req, res) => {
   try {
-    const createdUser = await Testimonial.create({  // Use `Testimonial` (not `Testimonials`)
-      name: "Maryam",
-      position: "hello",
-      message: "Hi",
-      secretCode: "unique-code"
+    const { userName, phoneNumber, appointmentTime } = req.body;
+
+    // Validate required fields
+    if (!userName || !phoneNumber || !appointmentTime) {
+      return res.status(400).json({ message: 'All fields are required.' });
+    }
+
+    // Create a new appointment
+    const newAppointment = new Appointment({
+      userName,
+      phoneNumber,
+      appointmentTime,
     });
-    res.status(201).send({ message: 'User created!', user: createdUser });
+
+    // Save appointment to DB
+    await newAppointment.save();
+
+    res.status(201).json({ message: 'Appointment successfully booked!', appointment: newAppointment });
   } catch (err) {
-    console.error('Error creating testimonial:', err);
-    res.status(500).send({ message: 'Error creating testimonial', error: err });
+    console.error('Error creating appointment:', err);
+    res.status(500).json({ message: 'Error creating appointment.', error: err.message });
   }
 });
 

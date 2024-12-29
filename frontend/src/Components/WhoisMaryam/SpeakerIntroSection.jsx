@@ -46,7 +46,7 @@ const SpeakerIntroSection = () => {
   return (
     <div
       ref={sectionRef}
-      className="min-h-screen bg-gray-900 text-white py-16 px-6 flex flex-col items-center justify-center m-10 rounded"
+      className="min-h-screen bg-white-800 text-white py-16 px-6 flex flex-col items-center justify-center m-10 rounded"
     >
       <div className="max-w-6xl w-full grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 items-center">
         {/* Image Section */}

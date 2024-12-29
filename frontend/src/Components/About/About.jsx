@@ -21,9 +21,9 @@ const About = () => {
                 </div>
                 <div>
                     <div><p>HTML & CSS</p><hr style={{width:"50%"}}/></div>
-                    <div><p>HTML & CSS</p><hr style={{width:"50%"}}/></div>
-                    <div><p>HTML & CSS</p><hr style={{width:"50%"}}/></div>
-                    <div><p>HTML & CSS</p><hr style={{width:"50%"}}/></div>
+                    <div><p>Tailwind</p><hr style={{width:"50%"}}/></div>
+                    <div><p>React</p><hr style={{width:"50%"}}/></div>
+                    <div><p>Javascript</p><hr style={{width:"50%"}}/></div>
                 </div>
             </div>
         </div>
