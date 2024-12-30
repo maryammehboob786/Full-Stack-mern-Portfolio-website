@@ -104,25 +104,48 @@ const TestimonialSection = () => {
         </form>
       </div>
 
-      <div>
-        <h2 className="text-2xl font-bold mb-4">Testimonials</h2>
-        <div className="grid gap-4">
-          {Array.isArray(testimonials) && testimonials.length > 0 ? (
-            testimonials.map((testimonial) => (
-              <div key={testimonial._id} className="border p-4 rounded shadow-sm">
-                <p className="text-lg font-semibold">{testimonial.name}</p>
-                <p className="text-gray-600">{testimonial.position}</p>
-                <p className="mt-2">{testimonial.message}</p>
-                <p className="text-sm text-gray-500 mt-2">
-                  {new Date(testimonial.createdAt).toLocaleDateString()}
-                </p>
+      <div className="flex justify-center items-center min-h-screen">
+  <div className="max-w-4xl mx-auto p-6">
+    <h2 className="text-4xl font-bold text-center text-white mb-8">Client Stories</h2>
+    <div className="space-y-6">
+      {Array.isArray(testimonials) && testimonials.length > 0 ? (
+        testimonials.map((testimonial) => (
+          <div
+            key={testimonial._id}
+            className="backdrop-blur-lg bg-white/10 rounded-xl p-8 border border-white/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div className="flex items-start gap-6">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-orange-500 to-purple-600 flex items-center justify-center flex-shrink-0">
+                <span className="text-2xl font-bold text-white">
+                  {testimonial.name.charAt(0)}
+                </span>
               </div>
-            ))
-          ) : (
-            <p>No testimonials available</p>
-          )}
-        </div>
-      </div>
+              <div className="space-y-4 flex-1">
+                <div>
+                  <h3 className="text-2xl font-semibold text-white">{testimonial.name}</h3>
+                  <p className="text-lg text-white/60">{testimonial.position}</p>
+                </div>
+                <blockquote className="text-white/80 leading-relaxed text-lg italic">
+                  "{testimonial.message}"
+                </blockquote>
+                <time className="block text-sm text-white/40">
+                  {new Date(testimonial.createdAt).toLocaleDateString(undefined, {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </time>
+              </div>
+            </div>
+          </div>
+        ))
+      ) : (
+        <p className="text-white/60 text-center">No testimonials available</p>
+      )}
+    </div>
+  </div>
+</div>
+
     </div>
   );
 };
